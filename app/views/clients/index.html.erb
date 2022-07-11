@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div id="clients">
+  <h1>Clientes</h1>
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th>Nombre del cliente</th>
+        <th>Fono contacto</th>
+        <th>Correo contacto</th>
+        <th>Mascotas asignadas</th>
+        <th colspan="3">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% @clients.each do |client| %>
+        <tr>
+          <% @modo_tabla = true %>
+          <%= render client %>
+          <td><%= client.pet_count(client.id) %></td>
+          <td><%= link_to "Ver", client %></td>
+          <td><%= link_to "Editar", edit_client_path(client) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<hr>
+
+<%= link_to "Nuevo cliente", new_client_path %> |
+<%= link_to "Ver Mascotas", pets_path %>

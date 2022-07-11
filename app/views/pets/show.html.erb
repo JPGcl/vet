@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Ficha de la mascota</h2>
+<p>
+  <strong>Nombre : </strong><%= @pet.name %><br>
+  <strong>Raza : </strong><%= @pet.race %><br>
+  <strong>Cumpleaños : </strong><%= @pet.birthdate.strftime('%d/%m/%Y') %>
+</p>
+<hr>  
+
+<h2>Estadísticas</h2>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th>Peso promedio</th>
+      <th>Altura promedio</th>
+      <th>Peso máximo</th>
+      <th>Altura máxima</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @pet.avg_weight(@pet.id) %></td>
+      <td><%= @pet.avg_height(@pet.id) %></td>
+      <td><%= @pet.max_weight(@pet.id) %></td>
+      <td><%= @pet.max_height(@pet.id) %></td>
+    </tr>
+  </tbody>
+</table>
+<hr>  
+
+<h2>Historial de la mascota</h2>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th>Peso</th>
+      <th>Altura</th>
+      <th>Comentario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pet.pet_history.each do |historia| %>
+      <tr>
+        <td><%= historia.weight %></td>
+        <td><%= historia.heigth %></td>
+        <td><%= historia.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>  
+  
+<h2>Agregar un historial de visita:</h2>
+<%= render "pet_histories/form_histories" %>
+<hr>
+
+<%= link_to 'Editar', edit_pet_path(@pet) %> |
+<%= link_to 'Volver', pets_path %>

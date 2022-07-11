@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h2>Ficha del cliente</h2>
+  <% @modo_tabla = false %>
+  <%= render @client %>
+
+<h2>Mascotas asignadas</h2>
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th>Nombre mascota</th>
+        <th>Altura máxima</th>
+        <th>Peso máximo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @client.pet.each do |pet| %>
+        <tr>
+          <td><%= pet.name %></td>
+          <td><%= pet.max_weight(pet.id) %></td>
+          <td><%= pet.max_height(pet.id) %></td>
+          <td><%= link_to 'Ver', pet %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+<hr>
+
+<div>
+  <%= link_to "Editar este cliente", edit_client_path(@client) %> |
+  <%= link_to "Volver", clients_path %>
+
+  <%= button_to "Eliminar este cliente", @client, method: :delete %>
+</div>

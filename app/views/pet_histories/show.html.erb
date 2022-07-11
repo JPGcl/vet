@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Heigth</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @pet_history.weight %></td>
+      <td><%= @pet_history.heigth %></td>
+      <td><%= @pet_history.description %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<%= link_to 'Edit', edit_pet_history_path(@pet_history) %> |
+<%= link_to 'Volver', pet_histories_path %>

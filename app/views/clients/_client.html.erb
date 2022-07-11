@@ -1,0 +1,12 @@
+<div id="<%= dom_id client %>">
+	<% if @modo_tabla == true %>
+		<td><%= client.name %></td>
+		<td><%= client.phone %></td>
+		<td><%= client.email %></td>
+	<% else %>
+		<td><strong>Nombre del cliente : </strong><%= client.name %></td><br>
+		<td><strong>Fono de contacto : </strong><%= client.phone %></td><br>
+		<td><strong>Correo de contacto : </strong><%= client.email %></td><br><br>
+	<% end %>
+</div>
+

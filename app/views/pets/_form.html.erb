@@ -1,0 +1,37 @@
+<%= form_with(model: pet, local: true) do |form| %>
+  <% if pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+      <% pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Nombre de la mascota : " %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Raza : " %>
+    <%= form.text_field :race %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Cumpleaños : " %>
+    <%= form.date_select :birthdate %>
+  </div>
+
+  <div class="field"> 
+    <%= form.label "Cliente dueño : " %>
+    <%= select_tag "pet[client_id]", options_for_select(@client_options, ''), prompt: "Seleccione el cliente dueño", require: true %>
+  </div>
+ 
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
