@@ -1,20 +1,22 @@
 <%= form_for([@pet, @pet.pet_history.build]) do |form| %>
 <div class="field">
-    <%= form.label "Peso" %>
+    <%= form.label "Peso :" %>
     <%= form.text_field :weight %>
   </div>
 
   <div class="field">
-    <%= form.label "Alto" %>
+    <%= form.label "Alto :" %>
     <%= form.text_field :heigth %>
   </div>
 
   <div class="field">
-    <%= form.label "Comentario" %>
+    <%= form.label "Comentario :" %>
     <%= form.text_area :description %>
   </div>
 
+<hr>  
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar" %>
   </div>
 <% end %>

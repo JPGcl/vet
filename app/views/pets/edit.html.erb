@@ -1,6 +1,8 @@
 <h1>Editando la Mascota</h1>
 
-<%= render 'form', pet: @pet %>
-
-<%= link_to 'Show', @pet %> |
-<%= link_to 'Back', pets_path %>
+<div class="shadow-lg p-3 mb-5 bg-gray rounded"> 
+    <%= render 'form', pet: @pet %>
+    <hr>
+    <%= link_to 'Ver', @pet %> |
+    <%= link_to 'Volver', pets_path %>
+</div>

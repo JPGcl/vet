@@ -30,8 +30,8 @@
     <%= form.label "Cliente dueño : " %>
     <%= select_tag "pet[client_id]", options_for_select(@client_options, ''), prompt: "Seleccione el cliente dueño", require: true %>
   </div>
- 
+  <hr>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar" %>
   </div>
 <% end %>

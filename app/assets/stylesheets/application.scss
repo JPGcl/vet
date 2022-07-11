@@ -1,1 +1,8 @@
 @import "bootstrap";
+
+body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background: url("https://cdn.pixabay.com/photo/2015/09/15/18/17/paw-print-941498_1280.jpg") no-repeat center center fixed;
+    background-size: 100% 100%;
+}

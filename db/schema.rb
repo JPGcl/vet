@@ -10,33 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_09_040812) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_11_030256) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clients", force: :cascade do |t|
     t.string "name"
-    t.integer "phone"
+    t.string "phone"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "pet_histories", force: :cascade do |t|
-    t.integer "pet_id"
     t.float "weight"
-    t.string "heigth"
+    t.float "heigth"
     t.text "description"
+    t.integer "pet_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.index ["pet_id"], name: "index_pet_histories_on_pet_id"
   end
 
   create_table "pets", force: :cascade do |t|
-    t.integer "client_id"
     t.string "name"
     t.string "race"
     t.date "birthdate"
+    t.integer "client_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.index ["client_id"], name: "index_pets_on_client_id"
   end
 
   add_foreign_key "pet_histories", "pets"

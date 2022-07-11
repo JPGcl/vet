@@ -1,31 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Mascotas</h1>
-<table class="table table-hover table-dark">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Raza</th>
-      <th>Cumpleaños</th>
-      <th>Visitas</th>
-      <th colspan="3">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @pets.each do |pet| %>
+<div id="pets" class="shadow-lg p-3 mb-5 bg-gray rounded">
+  <h1>Mascotas</h1>
+  <table class="table table-hover table-dark">
+    <thead>
       <tr>
-        <td><%= pet.name %></td>
-        <td><%= pet.race %></td>
-        <td><%= pet.birthdate %></td>
-        <td><%= pet.history_count(pet.id) %></td>
-        <td><%= link_to 'Ver', pet %></td>
-        <td><%= link_to 'Editar', edit_pet_path(pet) %></td>
-        <td><%= link_to 'Eliminar', pet, method: :delete, data: { confirm: "¿Realmente quieres eliminar a la mascota #{pet.name}?" } %></td>
+        <th>Nombre</th>
+        <th>Raza</th>
+        <th>Cumpleaños</th>
+        <th>Visitas</th>
+        <th colspan="3">Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @pets.each do |pet| %>
+        <tr>
+          <td><%= pet.name %></td>
+          <td><%= pet.race %></td>
+          <td><%= pet.birthdate %></td>
+          <td><%= pet.history_count(pet.id) %></td>
+          <td><%= link_to 'Ver', pet %></td>
+          <td><%= link_to 'Editar', edit_pet_path(pet) %></td>
+          <td><%= link_to 'Eliminar', pet, method: :delete, data: { confirm: "¿Realmente quieres eliminar a la mascota #{pet.name}?" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <hr>
 
 <%= link_to 'Nueva Mascota', new_pet_path %> | 
