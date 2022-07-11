@@ -5,6 +5,7 @@ class CreatePetHistories < ActiveRecord::Migration[5.2]
       t.float :weight
       t.string :heigth
       t.text :description
+      t.integer :pet_id
 
       t.timestamps
     end
